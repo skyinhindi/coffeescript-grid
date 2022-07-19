@@ -1,0 +1,120 @@
+.login {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: pink; */
+  font-size: 1.6rem;
+}
+
+.heading-primary {
+  font-size: 1.6rem;
+  letter-spacing: 0.3rem;
+  font-weight: 300;
+  color: black;
+  margin-bottom: 5%;
+}
+
+.input {
+  width: 80%;
+  transition: all 150ms ease-in;
+  border: none;
+  height: 5rem;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  padding: 0 1.3rem;
+  background-color: #ececec;
+  caret-color: grey;
+  margin-bottom: 2rem;
+}
+
+.input:focus{
+  outline: none;
+  border: 0.5px solid #d4d4d4;
+  border-radius: 0.5rem;
+  /* transition-delay: 150ms; */
+}
+.input::placeholder {
+  color: grey;
+  content: "Enter email";
+  text-transform: capitalize;
+  letter-spacing: 0.2rem;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30vh;
+  width: 100%;
+  /* background-color: grey; */
+}
+
+.btn-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 7rem;
+  background-color: black;
+  border-radius: 1rem;
+  margin-top: 3rem;
+}
+.btn-div--hover {
+  margin-top: 3.5rem;
+}
+.btn {
+  color: black;
+  width: 20rem;
+  height: 2.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  background-color: white;
+  border: 0.5px solid black;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 150ms ease-in;
+  box-shadow: 0 0 black;
+  transition: box-shadow 150ms ease-in;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: 1px 1px black;
+}
+
+.btn-mm-row {
+  display: flex;
+}
+
+
+.btn:active {
+  transform: translateY(0.5rem);
+}
+
+.logo {
+  width: 30%;
+  margin-bottom: 2%;
+}
+
+.mm {
+  width: 30px;
+}
+.btn-text {
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.errmsg {
+  margin-top: 1rem;
+}
