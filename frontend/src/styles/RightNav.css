@@ -1,0 +1,25 @@
+.right-nav-component {
+    position: absolute;
+    height: 66%;
+    width: 10%;
+    /* box-shadow: 2px 2px 4px grey; */
+    right: 0;
+    top: 27%;
+}
+
+.right-nav-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+}
+.right-nav-icon{
+    height: 100%;
+    margin: 1em;
+    border: orange 1px solid;
+}
+/* .right-nav-icon > i{
+    font-size: 20px;
+} */

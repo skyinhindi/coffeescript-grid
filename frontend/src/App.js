@@ -1,18 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, {useState } from "react";
 import Login from "./containers/Login";
 import Home from "./containers/Home";
-import "normalize.css";
-import "./styles/styles.css";
-import { TransactionContext } from "./context/TransactionContext";
+import 'normalize.css';
+import './styles/styles.css';
 
-const App = () => {
-  const { connectWallet } = useContext(TransactionContext);
+
+function App() {
+  
   const [loggedIn, setLoggedIn] = useState(false);
-  return loggedIn ? (
-    <Home />
-  ) : (
-    <Login setLoggedIn={setLoggedIn} connectWallet={connectWallet} />
-  );
-};
+  return loggedIn? <Home /> : <Login setLoggedIn={setLoggedIn} />
+}
 
 export default App;

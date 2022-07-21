@@ -1,0 +1,132 @@
+.categories-nav {
+    position: absolute;
+    top: 16%;
+    height: 80%;
+    width: 17%;
+    /* border-radius:; */
+    padding: 5% 0;
+    font-family: 'Titillium Web';
+    box-shadow: 1px 1px 4px grey;
+
+
+}
+
+#category-span {
+    font-size: 2em;
+    font-weight: 600;
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 4px grey;
+    border-radius: 10px;
+    position: absolute;
+    padding: 0 13%;
+    border: none !important;
+    top: 10%;
+}
+
+.categories-nav ul {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 10%;
+
+}
+
+.categories-nav ul li {
+    margin: 5%;
+    font-size: 1.3em;
+}
+
+.nav-item>.nav-link.active {
+    /* border: grey 0px solid; */
+    color: black;
+    border-bottom: 1px grey solid;
+    width: 80%;
+    background-color: white !important;
+}
+
+.nav-link {
+    color: black;
+    text-align: left;
+}
+
+.categories-content {
+    left: 24%;
+    position: absolute;
+    height: 72%;
+    width: 62%;
+    /* border: 2px grey solid; */
+    /* box-shadow: 2px 2px 5px grey; */
+    top: 24%;
+}
+
+.tab-content {
+    position: relative;
+    padding: 2%;
+    height: 100%;
+    width: 100%;
+}
+
+.tab-pane {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.tab-pane-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+/* categories inner content */
+.row-1,
+.row-2,
+.row-3 {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 5fr;
+    padding: 1%;
+    height: 32%;
+}
+
+.row-1 {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 5fr;
+}
+
+.row-2 {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 3fr 2fr;
+}
+
+.row-3 {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 4fr;
+}
+
+.row-div {
+    position: relative;
+    background-color: rgb(190, 185, 185);
+    height: 100%;
+    width: 99%;
+    margin: auto;
+
+}
+
+
+
+#row-2-display>row-2-div {
+
+    background-color: orange;
+
+}

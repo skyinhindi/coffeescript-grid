@@ -1,0 +1,16 @@
+.search-bar-component {
+    position: absolute;
+    top: 16%;
+    left: 30%;
+    width: 50%;
+}
+
+#search-bar-input {
+    border: none;
+    border-bottom: 1px solid #bdabab;
+    font-size: 2em;
+    width: 100%;
+    position: relative;
+    outline: none !important;
+
+}
