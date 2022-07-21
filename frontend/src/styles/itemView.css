@@ -1,0 +1,5 @@
+.item-view {
+  background-color: white;
+  flex-grow: 1;
+  max-height: 100vh;
+}

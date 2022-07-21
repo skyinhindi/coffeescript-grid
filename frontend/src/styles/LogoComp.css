@@ -1,11 +1,7 @@
 .logo-component{
-    position: fixed;
-    left: 2%;
+    height:3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.logo-component > div{
-    width: 100%;
 }

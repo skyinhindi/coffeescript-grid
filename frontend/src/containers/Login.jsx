@@ -9,7 +9,7 @@ const Login = ({setLoggedIn}) => {
   const [error, setError] = useState(false);
   return (
     <div className='login'>
-      <img className='logo' src={Logo} alt="MM"/>
+      <img className='logo' src={Logo} alt="MM"  />
       <span className='heading-primary'>Welcome to the revolution!</span>
       <SignInButton setLoggedIn={setLoggedIn}setError={setError}/>
       {error && <p className='errmsg' >There was some problem connecting to Metamask</p>}
