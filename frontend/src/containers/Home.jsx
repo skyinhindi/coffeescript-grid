@@ -12,6 +12,8 @@ import { Route, Routes } from 'react-router-dom';
 
 
 const Home = () => {
+  const width = 250;
+  const height = 33;
   return (
     <div className='home-container'>
       {/* <Navbar /> */}

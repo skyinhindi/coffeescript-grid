@@ -2,7 +2,7 @@ require("@nomicfoundation/hardhat-toolbox");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.9",
+  solidity: "0.8.4",
   networks: {
     rinkeby: {
       url: "https://eth-rinkeby.alchemyapi.io/v2/qe7sfj2YYNQZE7n3VcKnB7AqdlWTV-Ul",
