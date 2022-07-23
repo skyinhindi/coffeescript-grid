@@ -49,7 +49,7 @@ const Sidebar = () => {
           return (
           <Link
           onClick={() => {setSelected(category.path)}}
-          to={`/category/${category.name}`} key={category.path} className="category-list-item">
+          to={`/category/${category.path}`} key={category.path} className="category-list-item">
             <div
               className={selected===category.path?'category-item-s': 'category-item'}
             >

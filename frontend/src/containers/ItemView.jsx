@@ -5,38 +5,35 @@ import Products from '../components/Products';
 import '../styles/itemView.css'
 
 const ItemView = () => {
-  const { categoryId }= useParams();
-  const [error, setError] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
-
-  async function getProducts(categoryId) {
-    console.log(categoryId);
-
-    if(categoryId) {
-      setLoading(true);
-      const response = await fetch(`https://fakestoreapi.com/products/category/${categoryId}`);
-      const products = await response.json();
-      console.log(products);
-      setProducts(products);
-      setLoading(false);
+  const {categoryId} = useParams();
+  useEffect( () => {
+    const getProducts = async () => {
+      if(categoryId) {
+        setLoading(true);
+        const response = await fetch(`https://fakestoreapi.com/products/category/${categoryId}`);
+        const products = await response.json();
+        console.log(products);
+        setProducts(products);
+        setLoading(false);
+      }
+      else {
+        setLoading(true);
+        const response =  await fetch('https://fakestoreapi.com/products');
+        const products = await response.json();
+        console.log(products);
+        setProducts(products);
+        setLoading(false);
+      }
     }
-    else {
-      setLoading(true);
-      const response =  await fetch('https://fakestoreapi.com/products');
-      const products = await response.json();
-      console.log(products);
-      setProducts(products);
-      setLoading(false);
-    }
-  }
-  useEffect(() => {
+
+    getProducts();
     return () => {
-      getProducts(categoryId);
     };
-  }, [categoryId])
-
-
+  }, [categoryId]);
+  console.log(categoryId);
   return (
     <div className='item-view'>
       {loading? <Loading />: <Products products={products} />}
