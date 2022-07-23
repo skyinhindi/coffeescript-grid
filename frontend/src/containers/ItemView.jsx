@@ -4,7 +4,6 @@ import '../styles/itemView.css'
 
 const ItemView = () => {
   const category= useParams();
-  console.log(category);
   return (
     <div className='item-view'>
       {category.categoryId && category.categoryId}

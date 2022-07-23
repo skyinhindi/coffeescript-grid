@@ -13,11 +13,6 @@
     padding-left: 1.5rem;
 }
 
-.search-bar:focus{
-    border-bottom: #EB5E28 solid 1px;
-    /* color: #EB5E28; */
-}
-
 .search-bar {
     display: flex;
     flex-direction: row;
@@ -27,7 +22,7 @@
     margin-bottom: 1rem;
 }
 .focus {
-    border-bottom: #EB5E28 solid 1px;
+    border-bottom: #EB5E28 solid 2px;
 }
 .search-bar > img {
     margin-right: 1rem;

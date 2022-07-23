@@ -1,8 +1,15 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams} from 'react-router-dom'
 import Logo from '../components/Logo';
 import Ishan from '../assets/ishan.jpeg'
 import LogoComp from '../components/LogoComp';
+
+const home = {
+  id: 0,
+  name: 'Home',
+  path: '/',
+  icon: '/images/home.svg'
+}
 
 const categories= [
   {
@@ -33,10 +40,10 @@ const categories= [
 ]
 const Sidebar = () => {
   const [selected, setSelected] = useState('/');
-
+  const params = useParams();
   return (
     <div className='sidebar' >
-      <Logo width={150} />
+      <Logo width={150} setSelected={setSelected} />
       <div className="categories">
         <h3 className='sidebar-heading'>Categories</h3>
         {categories.map((category) => {
@@ -55,9 +62,16 @@ const Sidebar = () => {
         )
       })}
       </div>
+        <div className="sidebar-bottom">
         <Link to='/pfp'>
             <img className='pfp'  src={Ishan} alt=""/>
         </Link>
+        <Link 
+          className={selected === '/' ? 'home-list-item' : 'home-list-item-ns'}
+          to='/' onClick={ () => { setSelected('/') } }>
+            <img className={selected ==='/'? 'home--icon' : 'home--icon-ns'} src={home.icon} alt="home-icon" width={24} />
+        </Link>
+        </div>
     </div>
   )
 }
