@@ -1,14 +1,45 @@
-import {React}from 'react'
+import {React, useEffect, useState}from 'react'
 import { Routes, Route, useParams } from 'react-router-dom'
+import Loading from '../components/Loading';
 import Products from '../components/Products';
 import '../styles/itemView.css'
 
 const ItemView = () => {
-  const category= useParams();
+  const { categoryId }= useParams();
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+
+  async function getProducts(categoryId) {
+    console.log(categoryId);
+
+    if(categoryId) {
+      setLoading(true);
+      const response = await fetch(`https://fakestoreapi.com/products/category/${categoryId}`);
+      const products = await response.json();
+      console.log(products);
+      setProducts(products);
+      setLoading(false);
+    }
+    else {
+      setLoading(true);
+      const response =  await fetch('https://fakestoreapi.com/products');
+      const products = await response.json();
+      console.log(products);
+      setProducts(products);
+      setLoading(false);
+    }
+  }
+  useEffect(() => {
+    return () => {
+      getProducts(categoryId);
+    };
+  }, [categoryId])
+
+
   return (
     <div className='item-view'>
-      {category.categoryId && <Products />}
-      {!category.categoryId && <p>Main page</p>}
+      {loading? <Loading />: <Products products={products} />}
     </div>
   )
 }
