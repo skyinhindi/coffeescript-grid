@@ -1,5 +1,6 @@
 import {React}from 'react'
 import { Routes, Route, useParams } from 'react-router-dom'
+import Products from '../components/Products';
 import '../styles/itemView.css'
 
 const ItemView = () => {
@@ -7,7 +8,7 @@ const ItemView = () => {
   console.log(category);
   return (
     <div className='item-view'>
-      {category.categoryId && category.categoryId}
+      {category.categoryId && <Products />}
       {!category.categoryId && <p>Main page</p>}
     </div>
   )
