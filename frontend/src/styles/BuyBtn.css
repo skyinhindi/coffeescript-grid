@@ -1,0 +1,20 @@
+.buy-btn-container{
+    position: absolute;
+    bottom: 0;
+   
+    
+    /* display: flex;
+    justify-content:center;
+    align-items: center; */
+}
+#buy-btn-button{
+    position: relative;
+    width: 350px;
+    background-color: orangered;
+    height: 40px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}

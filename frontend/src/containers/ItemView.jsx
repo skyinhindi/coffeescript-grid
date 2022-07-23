@@ -21,7 +21,7 @@ const ItemView = () => {
       }
       else {
         setLoading(true);
-        const response =  await fetch('https://fakestoreapi.com/products');
+        const response =  await fetch('https://fakestoreapi.com/products/');
         const products = await response.json();
         console.log(products);
         setProducts(products);

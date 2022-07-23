@@ -1,8 +1,16 @@
 .item-view {
+  margin-top: 13%;
+  margin-left: 10%;
+  margin-right: 10%;
   background-color: white;
   flex-grow: 1;
-  max-height: 100vh;
-  height: 50vh;
+  /* position: absolute; */
+  position: relative;
+  max-height: 74vh;
+  max-width: 140vh;
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
   align-items: center;
   justify-content: center;
 }

@@ -20,6 +20,9 @@
     border-bottom: 1px solid grey;
     padding: 0.5rem;
     margin-bottom: 1rem;
+    position: fixed;
+    top: 0;
+    margin-top: 4%;
 }
 .focus {
     border-bottom: #EB5E28 solid 2px;

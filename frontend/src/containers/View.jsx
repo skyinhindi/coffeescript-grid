@@ -6,6 +6,7 @@ import Sidebar from './Sidebar'
 import ItemView from './ItemView'
 import '../styles/sidebar.css'
 import MainView from './MainView'
+// import ProductView from './ProductView';
 
 const View = () => {
   return (
@@ -14,6 +15,8 @@ const View = () => {
         <Routes>
           <Route path='/*' element={ <MainView /> } />
           <Route path='/pfp' element={ <UserProfile /> } />
+          {/* <Route path='product/:productId' element={<ProductView />} /> */}
+
         </Routes>
     </div>
   )

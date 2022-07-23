@@ -3,6 +3,7 @@ import {Routes, Route, useParams} from 'react-router-dom'
 import ItemView from './ItemView';
 import UserProfile from './UserProfile';
 import SearchBar from '../components/SearchBar';
+import ProductView from './ProductView';
 
 
 const MainView = () => {
@@ -45,6 +46,7 @@ const MainView = () => {
           <Routes>
             <Route path='/' element={<ItemView />} />
             <Route path='category/:categoryId' element={<ItemView />} />
+            <Route path='product/:productId' element={<ProductView />} />
           </Routes>
     </div>
   )

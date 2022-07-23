@@ -14,8 +14,8 @@ const home = {
 const categories= [
   {
     id:1,
-    name: 'Tech',
-    path: 'tech',
+    name: 'Jewelery',
+    path: 'jewelery',
     icon: '/images/GameController.svg'
   },
   {
