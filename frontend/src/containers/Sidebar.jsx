@@ -38,8 +38,7 @@ const categories= [
   },
   
 ]
-const Sidebar = () => {
-  const [selected, setSelected] = useState('/');
+const Sidebar = ({selected, setSelected}) => {
   return (
     <div className='sidebar' >
       <Logo width={150} setSelected={setSelected} />
