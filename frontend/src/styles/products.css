@@ -1,3 +1,18 @@
-.product-view {
+/* .product-view {
   display: grid;
+} */
+
+.products-view-container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 2em 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  
 }
+/* .products-view-container > div{
+  margin: 10% 0;
+} */

@@ -13,14 +13,14 @@ const MainView = ({selected, setSelected}) => {
     <div className='view-child'>
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
           <Routes>
-<<<<<<< HEAD
+{/* <<<<<<< HEAD */}
             <Route path='/' element={<ItemView />} />
             <Route path='category/:categoryId' element={<ItemView />} />
             <Route path='product/:productId' element={<ProductView />} />
-=======
+{/* ======= */}
             <Route path='/' element={<ItemView setSelected={setSelected}  searchTerm={searchTerm}/>} />
             <Route path='category/:categoryId' element={<ItemView setSelected={setSelected} searchTerm={searchTerm} />} />
->>>>>>> refs/remotes/origin/main
+{/* >>>>>>> refs/remotes/origin/main */}
           </Routes>
     </div>
   )
