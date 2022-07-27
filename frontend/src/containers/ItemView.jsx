@@ -7,11 +7,6 @@ import "../styles/itemView.css";
 const ItemView = ({ searchTerm, setSelected }) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
-<<<<<<< HEAD
-  //console.log(setSelected);
-  const { categoryId } = useParams();
-=======
->>>>>>> 62b1eb4bcd06ef535a721fc134c738a64554fba6
   const navigate = useNavigate();
   const { categoryId, searchId } = useParams();
 
@@ -42,11 +37,10 @@ const ItemView = ({ searchTerm, setSelected }) => {
     const filterProducts = async () => {
       setLoading(true);
       setSelected("/");
-      if(searchTerm.length) {
+      if (searchTerm.length) {
         navigate(`/search/${searchTerm}`);
-      }
-      else {
-        navigate('/');
+      } else {
+        navigate("/");
       }
       const response = await fetch("https://fakestoreapi.com/products");
       let products = await response.json();

@@ -10,9 +10,6 @@ const ProductCard = ({ product, handleBuy }) => {
   const price = "0.01 ETH";
 
   return (
-    // <Link
-    //       onClick={() => {setProductView(product.id)}}
-    //       to={`/product/${product.id}`} key={product.id}>
     <div
       className="product-card-container"
       onClick={() => {
@@ -27,13 +24,7 @@ const ProductCard = ({ product, handleBuy }) => {
         <div className=""></div>
         <div className="divider"></div>
         <div className="product-bottom-row">
-          <a
-            onClick={() => {
-              console.log("ADDED TO CART");
-            }}
-          >
-            Add to cart
-          </a>
+          <a onClick={() => handleBuy(id, title)}>Add to cart</a>
         </div>
       </div>
     </div>
