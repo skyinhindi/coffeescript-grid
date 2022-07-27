@@ -4,14 +4,10 @@ import "../styles/ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({product}) => {
+const ProductCard = ({ product, handleBuy }) => {
   const navigate = useNavigate();
-  const { id, title, description, image} = product;
+  const { id, title, description, image } = product;
   const price = "0.01 ETH";
-
-  const handleBuy = () => {
-    console.log("buy item");
-  };
 
   return (
     // <Link
@@ -27,14 +23,17 @@ const ProductCard = ({product}) => {
         <img className="product-image" src={image}></img>
       </div>
       <div className="product-details">
-        <div className="product-title-text">
-          { title }
-        </div>
-        <div className="">
-        </div>
+        <div className="product-title-text">{title}</div>
+        <div className=""></div>
         <div className="divider"></div>
         <div className="product-bottom-row">
-          <a onClick={() => { console.log("ADDED TO CART"); }}>Add to cart</a>
+          <a
+            onClick={() => {
+              console.log("ADDED TO CART");
+            }}
+          >
+            Add to cart
+          </a>
         </div>
       </div>
     </div>

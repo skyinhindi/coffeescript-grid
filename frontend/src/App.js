@@ -13,12 +13,12 @@ const App = () => {
 
   const setBalace = async () => {
     const balance = await Moralis.Web3API.account.getTransactions();
-    console.log(balance);
+    //console.log(balance);
   };
 
   useEffect(() => {
     if (isAuthenticated) {
-      console.log(user);
+      //console.log(user);
       setBalace();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
