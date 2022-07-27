@@ -1,9 +1,8 @@
-import React from 'react'
-import { SpinnerCircular } from 'spinners-react';
-import { BarLoader } from 'react-spinners';
+import React from "react";
+import { BarLoader } from "react-spinners";
 
-const Loading = ({loading}) => {
-  return <BarLoader size={8}  color='#EB5E28' enabled={ loading }/>
-}
+const Loading = ({ loading }) => {
+  return <BarLoader size={8} color="#EB5E28" loading={loading} />;
+};
 
 export default Loading;

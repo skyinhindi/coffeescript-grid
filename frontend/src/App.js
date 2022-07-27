@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useMoralis } from "react-moralis";
+import Moralis from "moralis";
 
 import Login from "./containers/Login";
 import Home from "./containers/Home";
 import "normalize.css";
 import "./styles/styles.css";
 
-function App() {
+const App = () => {
   const {
     authenticate,
     isAuthenticated,
@@ -16,21 +17,28 @@ function App() {
     logout,
   } = useMoralis();
 
+  const setBalace = async () => {
+    const balance = await Moralis.Web3API.account.getTransactions();
+    console.log(balance);
+  };
+
   useEffect(() => {
     if (isAuthenticated) {
+      setBalace();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
   const login = async () => {
     if (!isAuthenticated) {
-      await authenticate({ signingMessage: "Log in using Moralis" })
+      await authenticate({ signingMessage: "Log in" })
         .then(function (user) {
-          console.log("logged in user:", user);
           console.log(user.get("ethAddress"));
+          return true;
         })
         .catch(function (error) {
           console.log(error);
+          return false;
         });
     }
   };
@@ -41,7 +49,11 @@ function App() {
   };
 
   const [loggedIn, setLoggedIn] = useState(false);
-  return loggedIn ? <Home /> : <Login setLoggedIn={setLoggedIn} />;
-}
+  return loggedIn ? (
+    <Home />
+  ) : (
+    <Login setLoggedIn={setLoggedIn} login={login} />
+  );
+};
 
 export default App;
