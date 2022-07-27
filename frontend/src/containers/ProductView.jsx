@@ -1,7 +1,6 @@
 import React, { useEffect, useState}from 'react'
 import '../styles/ProductView.css';
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import BuyBtn from '../components/BuyBtn';
 import Loading from '../components/Loading';
 import ProductDetails from '../containers/ProductDetails';
 
@@ -31,7 +30,7 @@ function ProductView() {
     </div>
     <div className='product-details-div'>
         <h2>{product.title}</h2>
-        <BuyBtn />
+        <a href="">add to cart</a>
     </div>
 </div>;
 }
