@@ -7,7 +7,7 @@ import "../styles/itemView.css";
 const ItemView = ({ searchTerm, setSelected }) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
-  console.log(setSelected);
+  //console.log(setSelected);
   const { categoryId } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
@@ -35,7 +35,6 @@ const ItemView = ({ searchTerm, setSelected }) => {
 
   useEffect(() => {
     const filterProducts = async () => {
-
       setLoading(true);
       navigate("/");
       setSelected("/");
@@ -53,7 +52,7 @@ const ItemView = ({ searchTerm, setSelected }) => {
       setLoading(false);
     };
     filterProducts();
-    console.log('filter');
+    //console.log("filter");
     return () => {};
   }, [searchTerm]);
   return (

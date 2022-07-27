@@ -2,7 +2,7 @@
   display: grid;
 } */
 
-.products-view-container{
+.products-view-container {
   height: 100%;
   width: 100%;
   justify-content: center;
@@ -11,7 +11,6 @@
   gap: 1rem;
   flex-wrap: wrap;
   flex-direction: row;
-  
 }
 .products-notFound {
   display: flex;

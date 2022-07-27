@@ -4,16 +4,12 @@ import "../styles/ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, handleBuy }) => {
   const [productView, setProductView] = useState("/");
 
   const navigate = useNavigate();
 
   const { title, image, price, desc } = product;
-
-  const handleBuy = () => {
-    console.log("buy item");
-  };
 
   return (
     // <Link
