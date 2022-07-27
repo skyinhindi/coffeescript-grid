@@ -1,8 +1,7 @@
-import React, {useState} from 'react'
-import { Link, useParams} from 'react-router-dom'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import Logo from '../components/Logo';
 import Ishan from '../assets/ishan.jpeg'
-import LogoComp from '../components/LogoComp';
 
 const home = {
   id: 0,

@@ -1,11 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import {Routes, Route, useParams} from 'react-router-dom'
+import React, { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import ItemView from './ItemView';
-import UserProfile from './UserProfile';
 import SearchBar from '../components/SearchBar';
 
 
-const MainView = ({selected, setSelected}) => {
+const MainView = ({setSelected}) => {
   
   const [searchTerm, setSearchTerm] = useState("");
   return (

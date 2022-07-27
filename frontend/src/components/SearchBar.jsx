@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import '../styles/SearchBar.css';
 
 function SearchBar({searchTerm= "", setSearchTerm}) {
@@ -10,7 +10,7 @@ function SearchBar({searchTerm= "", setSearchTerm}) {
         value={searchTerm}
         onChange={(e) => { setSearchTerm(e.target.value) }}
         onBlur={() => { setToggleState(false) }}
-        onFocus={() => {setToggleState(true)  }} id='search-bar-input' placeholder='Explore Products' />
+        onFocus={() => { setToggleState(true)  }} id='search-bar-input' placeholder='Explore Products' />
         {/* <i class="fa-solid fa-magnifying-glass"></i> */}
        
     </div>

@@ -5,7 +5,7 @@
     /* border-bottom: 1px solid grey; */
     font-size: 1.6rem;
     outline: none !important;
-    color: black;
+    color: grey;
 }
 
 #search-bar-input::placeholder {

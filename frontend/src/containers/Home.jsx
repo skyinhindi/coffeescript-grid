@@ -1,13 +1,6 @@
 import React from 'react'
-import Navbar from '../components/Navbar';
 import View from './View';
-import UserProfile from './UserProfile';
 import '../styles/home.css';
-import CategoriesNav from '../components/CategoriesNav';
-import RightNav from '../components/RightNav';
-import Logo from '../assets/logo.svg';
-import LogoComp from '../components/LogoComp';
-import SearchBar from '../components/SearchBar';
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -16,7 +9,6 @@ const Home = () => {
   const height = 33;
   return (
     <div className='home-container'>
-      {/* <Navbar /> */}
       <Routes>
         <Route path='/*' element={<View/>} />
       </Routes>
