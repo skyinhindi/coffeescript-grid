@@ -11,7 +11,7 @@ const ButtonText = () => {
   );
 };
 
-const SignInButton = ({ setLoggedIn, setError, login }) => {
+const SignInButton = ({ setError, login }) => {
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
@@ -20,7 +20,6 @@ const SignInButton = ({ setLoggedIn, setError, login }) => {
       try {
         if (window.ethereum.isConnected() && window.ethereum.isMetaMask) {
           await login();
-          setLoggedIn(true);
           setError(false);
         }
       } catch (e) {

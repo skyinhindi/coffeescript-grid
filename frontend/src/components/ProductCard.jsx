@@ -11,6 +11,10 @@ const ProductCard = ({ product }) => {
 
   const { title, image, price, desc } = product;
 
+  const handleBuy = () => {
+    console.log("buy item");
+  };
+
   return (
     // <Link
     //       onClick={() => {setProductView(product.id)}}
@@ -38,6 +42,11 @@ const ProductCard = ({ product }) => {
         <div className="product-description-text">
           {/* {desc.substring(0, 30)} */}
           {desc}
+        </div>
+        <div className="buy-button-container">
+          <button className="buy-button" onClick={handleBuy}>
+            Buy
+          </button>
         </div>
       </div>
     </div>

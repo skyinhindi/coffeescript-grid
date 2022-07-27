@@ -8,14 +8,7 @@ import "normalize.css";
 import "./styles/styles.css";
 
 const App = () => {
-  const {
-    authenticate,
-    isAuthenticated,
-    isAuthenticating,
-    user,
-    account,
-    logout,
-  } = useMoralis();
+  const { authenticate, isAuthenticated, user, account } = useMoralis();
 
   const setBalace = async () => {
     const balance = await Moralis.Web3API.account.getTransactions();
@@ -24,6 +17,7 @@ const App = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
+      console.log(user);
       setBalace();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -31,7 +25,7 @@ const App = () => {
 
   const login = async () => {
     if (!isAuthenticated) {
-      await authenticate({ signingMessage: "Log in" })
+      await authenticate({ signingMessage: "Log in to NFTCart" })
         .then(function (user) {
           console.log(user.get("ethAddress"));
           return true;
@@ -43,17 +37,7 @@ const App = () => {
     }
   };
 
-  const logOut = async () => {
-    await logout();
-    console.log("logged out");
-  };
-
-  const [loggedIn, setLoggedIn] = useState(false);
-  return loggedIn ? (
-    <Home />
-  ) : (
-    <Login setLoggedIn={setLoggedIn} login={login} />
-  );
+  return isAuthenticated ? <Home /> : <Login login={login} />;
 };
 
 export default App;
