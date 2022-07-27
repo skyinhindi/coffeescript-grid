@@ -1,15 +1,23 @@
-import React from 'react'
+import React from "react";
+import "../styles/products.css";
+import ProductCard from "../components/ProductCard";
 
-
-function Products({products}) {
+function Products({ products }) {
+  console.log(products);
   return (
-    <div className="products-view">
-        {products.length === 0 ?  <p>No products for u bich</p> : products.map(product => {
-          return <h2 key={product.id}> {product.title}</h2>
-        })}
-      
+    <div className="products-view-container">
+      {products.length === 0 ? (
+        <div className="products-notFound">{"No products are available! Come back later :)"}</div>
+      ) : (
+        products.map((product) => {
+          return (
+            <ProductCard product={product} key={product.id} />
+            // <h2 key={product.id}> {product.title}</h2>
+          );
+        })
+      )}
     </div>
-  )
+  );
 }
 
-export default Products
+export default Products;

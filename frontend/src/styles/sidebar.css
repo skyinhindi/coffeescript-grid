@@ -6,12 +6,20 @@
   padding: 2rem;
   justify-content: space-between;
   max-height: 100vh;
-
 }
-.categories  { 
+
+.side-bar-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.categories {
   margin-top: -30%;
 }
-.categories >a {
+.categories > a {
   text-decoration: none;
 }
 .sidebar-heading {
@@ -31,11 +39,12 @@
   font-weight: bold;
   margin: 1rem;
   letter-spacing: 0.3rem;
-  background-color: white;
+  background-color: transparent;
   color: #7e7e7e;
   padding: 1rem 2rem;
   border-radius: 3rem;
 }
+
 
 .category-item-s {
   display: flex;
@@ -50,22 +59,25 @@
   padding: 1rem 2rem;
   border-radius: 3rem;
   background-color: #ffd7b5;
-  color: #EB5E28;
+  color: #eb5e28;
 }
 
 .category-item {
   width: 24px;
   background-color: transparent;
 }
-.category-item-ns { 
-  filter: invert(41%) sepia(69%) saturate(1739%) hue-rotate(347deg) brightness(96%) contrast(91%);
+.category-item-ns {
+  filter: invert(41%) sepia(69%) saturate(1739%) hue-rotate(347deg)
+    brightness(96%) contrast(91%);
 }
 
 .category-icon {
-  filter: invert(41%) sepia(69%) saturate(1739%) hue-rotate(347deg) brightness(96%) contrast(91%);
+  filter: invert(41%) sepia(69%) saturate(1739%) hue-rotate(347deg)
+    brightness(96%) contrast(91%);
 }
 .category-icon-ns {
-  filter: invert(59%) sepia(13%) saturate(0%) hue-rotate(158deg) brightness(81%) contrast(82%);
+  filter: invert(59%) sepia(13%) saturate(0%) hue-rotate(158deg) brightness(81%)
+    contrast(82%);
 }
 
 .sidebar-bottom {
@@ -83,18 +95,29 @@
   padding: 1.2rem;
   border-radius: 999rem;
 }
-.home-list-item-ns{
+.home-list-item-ns {
   background-color: transparent;
   padding: 1.2rem;
 }
 
 .home--icon {
-  filter: invert(41%) sepia(69%) saturate(1739%) hue-rotate(347deg) brightness(96%) contrast(91%);
+  filter: invert(41%) sepia(69%) saturate(1739%) hue-rotate(347deg)
+    brightness(96%) contrast(91%);
   /* margin-right: 2rem; */
   align-self: center;
 }
 
 .home--icon-ns {
-  filter: invert(59%) sepia(13%) saturate(0%) hue-rotate(158deg) brightness(81%) contrast(82%);
+  filter: invert(59%) sepia(13%) saturate(0%) hue-rotate(158deg) brightness(81%)
+    contrast(82%);
   /* margin-right: 2rem; */
+}
+
+.logoutbtn {
+  padding: 1rem;
+}
+.logoutbtn:hover {
+  background-color: #DEDEDE;
+  border-radius: 999rem;
+
 }

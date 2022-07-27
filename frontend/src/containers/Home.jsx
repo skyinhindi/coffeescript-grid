@@ -10,16 +10,15 @@ const Home = () => {
   return (
     <div className='home-container'>
       <Routes>
-        <Route path='/*' element={<View/>} />
+        <Route path="/*" element={<View />} />
       </Routes>
-
 
       {/* <LogoComp width={width} height={height}/> */}
       {/* <CategoriesNav />
       <SearchBar />
       <RightNav /> */}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

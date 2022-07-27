@@ -1,21 +1,36 @@
-import React, { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import ItemView from './ItemView';
-import SearchBar from '../components/SearchBar';
+import React, { useState, useEffect } from "react";
+import { Routes, Route, useParams } from "react-router-dom";
+import ItemView from "./ItemView";
+import UserProfile from "./UserProfile";
+import SearchBar from "../components/SearchBar";
+import ProductView from "./ProductView";
 
-
-const MainView = ({setSelected}) => {
-  
+const MainView = ({ selected, setSelected }) => {
   const [searchTerm, setSearchTerm] = useState("");
   return (
-    <div className='view-child'>
-          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
-          <Routes>
-            <Route path='/' element={<ItemView setSelected={setSelected}  searchTerm={searchTerm}/>} />
-            <Route path='category/:categoryId' element={<ItemView setSelected={setSelected} searchTerm={searchTerm} />} />
-          </Routes>
+    <div className="view-child">
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <Routes>
+        {/* <<<<<<< HEAD */}
+        <Route path="/" element={<ItemView setSelected={setSelected} searchTerm={searchTerm} />} />
+        <Route path="category/:categoryId" element={<ItemView setSelected={setSelected}  searchTerm={searchTerm}/>} />
+        <Route path="product/:productId" element={<ProductView setSelected={setSelected} />} />
+        {/* ======= */}
+        <Route
+          path="/"
+          element={
+            <ItemView setSelected={setSelected} searchTerm={searchTerm} />
+          }
+        />
+        <Route
+          path="category/:categoryId"
+          element={
+            <ItemView setSelected={setSelected} searchTerm={searchTerm} />
+          }
+        />
+      </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default MainView
+export default MainView;

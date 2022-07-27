@@ -5,6 +5,7 @@ import '../styles/view.css'
 import Sidebar from './Sidebar'
 import '../styles/sidebar.css'
 import MainView from './MainView'
+// import ProductView from './ProductView';
 
 const View = () => {
   const [selected, setSelected] = useState('/');
@@ -14,7 +15,9 @@ const View = () => {
         <Sidebar selected={selected} setSelected={setSelected} />
         <Routes>
           <Route path='/*' element={ <MainView setSelected={setSelected} /> } />
-          <Route path='/pfp' element={ <UserProfile /> } />
+          <Route path='/user/:userId' element={ <UserProfile /> } />
+          {/* <Route path='product/:productId' element={<ProductView />} /> */}
+
         </Routes>
     </div>
   )

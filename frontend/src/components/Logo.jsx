@@ -1,12 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import logo from "../assets/logo.png"
+import '../styles/LogoComp.css';
 
-const Logo = ({width, height, setSelected}) => {
+const Logo = ({setSelected}) => {
   const navigate = useNavigate();
   return (
-    <div className='logo' onClick={() => { setSelected('/');  navigate('/'); }} >
-      <img className= 'logoimg' src={logo} alt="logo" width={width} height={height}/>
+    <div onClick={() => { setSelected('/');  navigate('/'); }} >
+      <img width={150} className= 'logoimg' src={logo} alt="logo"/>
     </div>
   )
 }
