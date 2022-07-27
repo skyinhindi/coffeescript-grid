@@ -5,10 +5,11 @@
 .products-view-container{
   height: 100%;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-start;
   display: flex;
-  gap: 1rem;
+  margin-top: 1.5rem;
+  gap: 0.2rem;
   flex-wrap: wrap;
   flex-direction: row;
   

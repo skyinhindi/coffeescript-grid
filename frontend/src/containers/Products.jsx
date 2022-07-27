@@ -2,8 +2,7 @@ import React from "react";
 import "../styles/products.css";
 import ProductCard from "../components/ProductCard";
 
-function Products({ products }) {
-  console.log(products);
+function Products({products}) {
   return (
     <div className="products-view-container">
       {products.length === 0 ? (

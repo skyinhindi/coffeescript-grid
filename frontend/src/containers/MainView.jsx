@@ -5,29 +5,22 @@ import UserProfile from "./UserProfile";
 import SearchBar from "../components/SearchBar";
 import ProductView from "./ProductView";
 
-const MainView = ({ selected, setSelected }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+const MainView = ({setSelected, searchTerm, setSearchTerm }) => {
   return (
     <div className="view-child">
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <Routes>
-        {/* <<<<<<< HEAD */}
         <Route path="/" element={<ItemView setSelected={setSelected} searchTerm={searchTerm} />} />
+        <Route path="/search/:searchTerm" element={<ItemView setSelected={setSelected} searchTerm={searchTerm} />} />
         <Route path="category/:categoryId" element={<ItemView setSelected={setSelected}  searchTerm={searchTerm}/>} />
-        <Route path="product/:productId" element={<ProductView setSelected={setSelected} />} />
-        {/* ======= */}
-        <Route
-          path="/"
-          element={
-            <ItemView setSelected={setSelected} searchTerm={searchTerm} />
-          }
-        />
         <Route
           path="category/:categoryId"
           element={
             <ItemView setSelected={setSelected} searchTerm={searchTerm} />
           }
         />
+        
+       
       </Routes>
     </div>
   );
