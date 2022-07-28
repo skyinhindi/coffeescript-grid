@@ -16,7 +16,7 @@ const View = () => {
       <div className="view">
         <Sidebar selected={selected} setSelected={setSelected} />
         <Routes>
-          <Route path='/*' element={ <MainView setSelected={setSelected} searchTerm={searchTerm}      setSearchTerm={setSearchTerm} /> } />
+          <Route path='/*' element={ <MainView setSelected={setSelected} searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> } />
           <Route path='/user/:userId' element={ <UserProfile /> } />
           <Route path='product/:productId' element={<ProductView />} />
 
