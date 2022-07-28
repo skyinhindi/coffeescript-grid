@@ -30,11 +30,11 @@ const App = () => {
   const login = async () => {
     if (!isAuthenticated) {
       await authenticate({ signingMessage: "Log in to NFTCart" })
-        .then(function (user) {
+        .then((user) => {
           Moralis.enableWeb3();
           return true;
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
           return false;
         });
