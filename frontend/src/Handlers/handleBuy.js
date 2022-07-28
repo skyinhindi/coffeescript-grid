@@ -46,7 +46,13 @@ const handleBuy = async (id, title, user) => {
   const metadataURI = metadataFile.ipfs();
 
   //Mint NFT
-  await mintToken(metadataURI, user);
+  try {
+    await mintToken(metadataURI, user);
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };
 
 export default handleBuy;
