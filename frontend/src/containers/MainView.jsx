@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Routes, Route, useParams } from "react-router-dom";
 import ItemView from "./ItemView";
-import UserProfile from "./UserProfile";
 import SearchBar from "../components/SearchBar";
-import ProductView from "./ProductView";
 
 const MainView = ({setSelected, searchTerm, setSearchTerm, setCartItems, cartItems}) => {
   return (
@@ -19,8 +17,6 @@ const MainView = ({setSelected, searchTerm, setSearchTerm, setCartItems, cartIte
             <ItemView setSelected={setSelected} searchTerm={searchTerm} setCartItems={setCartItems} cartItems={cartItems} />
           }
         />
-        
-       
       </Routes>
     </div>
   );

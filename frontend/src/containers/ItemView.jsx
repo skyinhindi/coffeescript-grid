@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { Routes, Route, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import Products from "./Products";
 import "../styles/itemView.css";

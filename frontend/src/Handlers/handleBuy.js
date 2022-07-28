@@ -12,7 +12,7 @@ const getDate = () => {
   return today;
 };
 
-const handleBuy = async (id, title, user, contractProcessor) => {
+const handleBuy = async (id, title, user) => {
   //Create invoice pdf to be saved as NFT
   const date = getDate();
   let shortTitle = title.substr(0, 50);
@@ -46,7 +46,7 @@ const handleBuy = async (id, title, user, contractProcessor) => {
   const metadataURI = metadataFile.ipfs();
 
   //Mint NFT
-  await mintToken(metadataURI, contractProcessor);
+  await mintToken(metadataURI, user);
 };
 
 export default handleBuy;

@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../components/Logo";
-import '../styles/sidebar.css';
+import "../styles/sidebar.css";
 import Ishan from "../assets/ishan.jpeg";
 import { useMoralis } from "react-moralis";
 
@@ -18,7 +16,7 @@ const UserSidebar = ({ selected, setSelected }) => {
     path: "/",
     icon: "/images/home.svg",
   };
-  
+
   const categories = [
     {
       id: 1,
@@ -44,18 +42,17 @@ const UserSidebar = ({ selected, setSelected }) => {
       path: "settings",
       icon: "/images/GameController.svg",
     },
-    
   ];
 
   const handleLogout = async () => {
     await logout();
-    navigate('/');
+    navigate("/");
     console.log("logged out");
   };
 
   return (
     <div className="sidebar">
-        <Logo width={75} setSelected={setSelected} />
+      <Logo width={75} setSelected={setSelected} />
       <div className="categories">
         <h3 className="sidebar-heading">User Profile</h3>
         {categories.map((category) => {
