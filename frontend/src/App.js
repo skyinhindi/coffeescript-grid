@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import Moralis from "moralis";
-import { getOrders } from "./Handlers/dataStore";
 
 import Login from "./containers/Login";
 import Home from "./containers/Home";
@@ -10,13 +9,6 @@ import "./styles/styles.css";
 
 const App = () => {
   const { authenticate, isAuthenticated, user } = useMoralis();
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      getOrders();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
 
   const login = async () => {
     if (!isAuthenticated) {
