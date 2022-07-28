@@ -12,11 +12,7 @@ const Products = ({ products }) => {
       ) : (
         products.map((product) => {
           return (
-            <ProductCard
-              product={product}
-              key={product.id}
-              handleBuy={handleBuy}
-            />
+            <ProductCard product={product} key={product.id} />
             // <h2 key={product.id}> {product.title}</h2>
           );
         })

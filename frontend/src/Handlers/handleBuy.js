@@ -1,9 +1,7 @@
 import Moralis from "moralis";
-import { useMoralis } from "react-moralis";
 import { jsPDF } from "jspdf";
 import { logo_base_64, qr_base_64 } from "../assets/data";
-
-const { user } = useMoralis();
+import mintToken from "./mintToken";
 
 const getDate = () => {
   let today = new Date();
@@ -14,7 +12,7 @@ const getDate = () => {
   return today;
 };
 
-const handleBuy = async (id, title) => {
+const handleBuy = async (id, title, user) => {
   //Create invoice pdf to be saved as NFT
   const date = getDate();
   let shortTitle = title.substr(0, 50);

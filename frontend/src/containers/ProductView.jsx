@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../styles/ProductView.css";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
-import ProductDetails from "../containers/ProductDetails";
+import handleBuy from "../Handlers/handleBuy";
+import { useMoralis } from "react-moralis";
 
-function ProductView() {
+const ProductView = () => {
+  const { user } = useMoralis();
+
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -24,6 +27,7 @@ function ProductView() {
     getProductByID();
     return () => {};
   }, []);
+
   return product == null ? (
     <Loading />
   ) : (
@@ -40,16 +44,12 @@ function ProductView() {
       </div>
       <div className="product-details-div">
         <h2>{product.title}</h2>
-        <a
-          onClick={() => {
-            console.log("ADDED TO CART");
-          }}
-        >
+        <a onClick={() => handleBuy(product.id, product.title, user)}>
           Add to cart
         </a>
       </div>
     </div>
   );
-}
+};
 
 export default ProductView;
