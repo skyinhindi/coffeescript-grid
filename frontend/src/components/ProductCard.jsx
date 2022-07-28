@@ -1,17 +1,16 @@
 import "../styles/ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import handleBuy from "../Handlers/handleBuy";
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
+import { useMoralis } from "react-moralis";
 import cart from "../assets/cart.svg";
 import heart from "../assets/heart.svg";
 
 const ProductCard = ({ product, setCartItems, cartItems }) => {
   const { user } = useMoralis();
-  const contractProcessor = useWeb3ExecuteFunction();
 
   const navigate = useNavigate();
   const { id, title, description, image } = product;
-  const price = "0.01 ETH";
+  const price = 0.01;
 
   const handleCart = (product) => {
     console.log(product);
@@ -44,7 +43,13 @@ const ProductCard = ({ product, setCartItems, cartItems }) => {
         <div className="product-bottom-row">
           <button
             id="product-card-btn"
-            onClick={() => { handleCart(product) }}
+            onClick={() => handleBuy(id, title, user, price)}
+          >
+            <img src={cart}></img>
+          </button>
+          <button
+            id="product-card-btn"
+            onClick={() => handleBuy(id, title, user, price)}
           >
             <img src={heart}></img>
           </button>
