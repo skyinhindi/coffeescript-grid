@@ -20,27 +20,21 @@ const UserSidebar = ({ selected, setSelected }) => {
   const categories = [
     {
       id: 1,
-      name: "about",
-      path: `about`,
-      icon: "/images/GameController.svg",
-    },
-    {
-      id: 1,
-      name: "wishlist",
+      name: "Wishlist",
       path: "wishlist",
       icon: "/images/GameController.svg",
     },
     {
       id: 2,
-      name: "history",
+      name: "History",
       path: "history",
       icon: "/images/EyeClosed.svg",
     },
     {
       id: 3,
-      name: "settings",
+      name: "Settings",
       path: "settings",
-      icon: "/images/GameController.svg",
+      icon: "/images/EyeClosed.svg",
     },
   ];
 
@@ -89,7 +83,7 @@ const UserSidebar = ({ selected, setSelected }) => {
         })}
       </div>
       <div className="sidebar-bottom">
-        <Link to={`/user/${user.id}/about`}>
+        <Link to={`/user/${user.id}/wishlist`}>
           <img className="pfp" src={Ishan} alt="" />
         </Link>
         <Link

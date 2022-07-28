@@ -2,9 +2,10 @@ import React from "react";
 import { BarLoader } from "react-spinners";
 import '../styles/loading.css';
 
-const Loading = ({ loading }) => {
+const Loading = ({ loading, color }) => {
+  console.log(color);
   return <div className="loading-div">
-    <BarLoader size={8} color="#EB5E28" loading={loading} />
+    <BarLoader size={8} color={color !=null ? `${color}`: `#EB5E28`} loading={loading} />
   </div>;
 };
 

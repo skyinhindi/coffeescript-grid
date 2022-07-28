@@ -125,7 +125,7 @@ const Sidebar = ({ selected, setSelected }) => {
         })}
       </div>
       <div className="sidebar-bottom">
-        <Link to={`/user/${user.id}/about`}>
+        <Link to={`/user/${user.id}/wishlist`}>
           <img className="pfp" src={Ishan} alt="" />
         </Link>
         <Link

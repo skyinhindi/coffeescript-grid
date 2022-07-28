@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../styles/Products.css";
 import ProductCard from "../components/ProductCard";
+import WishlistItem from "../components/WishlistItem";
+import ProductItem from "../components/ProductItem";
 
-const Products = ({ products, setCartItems, cartItems}) => {
+const Products = ({ products, isCartItem}) => {
   return (
     <div className="products-view-container">
       {products.length === 0 ? (
@@ -11,7 +13,7 @@ const Products = ({ products, setCartItems, cartItems}) => {
         </div>
       ) : (
         products.map((product) => {
-          return <ProductCard product={product} key={product.id} cartItems={cartItems} setCartItems={setCartItems} />;
+          return <ProductItem product={product} key={product.id} />;
         })
       )}
     </div>

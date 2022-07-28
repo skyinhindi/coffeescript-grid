@@ -18,7 +18,7 @@ const Wishlist = ({cartItems, setCartItems}) => {
     <div className="empty-cart">Your cart is empty <br/> Explore more items!</div> : 
     <div className='wishlist'>
       <div className="wishlist-items">
-      {products.map(product => <WishlistItem product={product} />)}
+      {products.map(product => <WishlistItem product={product} setProducts={setProducts}/>)}
       </div>
     </div>  
 }

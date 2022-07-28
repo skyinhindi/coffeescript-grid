@@ -22,8 +22,7 @@
 .wishlist-items {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 1rem;
-  justify-content: space-evenly;
+  margin-top: 1rem;;
   align-items: flex-start;
   width: 100%;
   height: 100%;
@@ -33,9 +32,20 @@
 .wishlist-item {
   width: 35%;
   height: 25%;
-  background-color: #DEDEDE;
+  background-color: #F6F6F6;
   display: flex;
+  padding: 1rem;
   flex-direction: row;
+  position: relative;
+}
+.wishlist-item-product {
+  width: 30%;
+  height: 20%;
+  background-color: #F6F6F6;
+  display: flex;
+  padding: 1rem;
+  flex-direction: row;
+  position: relative;
 }
 .wishlist-item:last-of-type {
   margin-bottom: 3rem;
@@ -86,12 +96,43 @@
   width: 50%;
   background-color: #EB5E28;
   opacity: .68;
-  margin-top: 1.5rem;
   color: white;
   cursor: pointer;
-  padding: 1rem;
+  height: 3.5rem;
   font-size: 1.6rem;
   outline: none;
   border: none;
   border-radius: 1rem;
+}
+.buy-btn:hover {
+  opacity: .5;
+}
+
+.remove-wishlist-item {
+  position: absolute;
+  cursor: pointer;
+  top: 1.5rem;
+  right: 2rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.remove-wishlist-item-ns {
+  position: absolute;
+  cursor: pointer;
+  top: 1.5rem;
+  right: 2rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+  opacity: 0;
+}
+
+.bottom-row {
+  display: flex;
+  margin-top: 1.5rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.addToCart {
+  cursor: pointer;
 }

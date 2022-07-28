@@ -4,12 +4,20 @@ import Loading from "../components/Loading";
 import Products from "./Products";
 import "../styles/itemView.css";
 
-const ItemView = ({ searchTerm, setSelected, setCartItems, cartItems }) => {
+const ItemView = ({ searchTerm, setSelected}) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
   const { categoryId, searchId } = useParams();
 
+  const isCartItem = (id) => {
+    for(var i=0; i<cartItems.length; i++)
+      if(cartItems[i].id === id)
+        return true;
+
+    return false;
+  }
   useEffect(() => {
     const getProducts = async () => {
       if (categoryId) {
@@ -58,6 +66,14 @@ const ItemView = ({ searchTerm, setSelected, setCartItems, cartItems }) => {
     filterProducts();
     return () => {};
   }, [searchTerm]);
+
+  useEffect(() => {
+    return () => {
+      var cartItems = JSON.parse(localStorage.getItem('cartItems'));
+      if(cartItems)
+        setCartItems(cartItems);
+    };
+  }, [])
   return (
     <div className="item-view">
       {loading ? <Loading /> : <Products cartItems={cartItems} setCartItems={setCartItems} products={products} />}
