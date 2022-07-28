@@ -33,15 +33,14 @@ const ProductView = () => {
     <Loading />
   ) : (
     <div className="product-view-container">
-      <a
-        id="go-back-btn"
+      <div
+        className="go-back-btn"
         onClick={() => {
           navigate(-1);
         }}
       >
         <img src={arrowLeft}></img>
-        <span>Go Back</span>
-      </a>
+      </div>
       <div className="product-view-container-inner">
         <div className="product-display-div">
           <img className="product-view-image" src={product.image}></img>

@@ -29,9 +29,6 @@ const ProductCard = ({ product }) => {
         <div className=""></div>
         <div className="divider"></div>
         <div className="product-bottom-row">
-          <a onClick={() => handleBuy(id, title, user, contractProcessor)}>
-            Add to cart
-          </a>
           <button
             id="product-card-btn"
             onClick={() => handleBuy(id, title, contractProcessor)}

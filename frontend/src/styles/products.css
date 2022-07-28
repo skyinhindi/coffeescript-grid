@@ -2,7 +2,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    margin: 2em 0;
+    padding: 2rem 0;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -13,3 +13,13 @@
 /* .products-view-container > div{
     margin: 10% 0;
 } */
+
+.products-notFound {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    color: grey;
+}
