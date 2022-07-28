@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/Products.css";
+import "../styles/products.css";
 import ProductCard from "../components/ProductCard";
 
 const Products = ({ products }) => {
