@@ -1,29 +1,30 @@
-const mintToken = async (_uri) => {
-  const nft_contract_address = "0x0Fb6EF3505b9c52Ed39595433a21aF9B5FCc4431";
-  const encodedFunction = window.ethereum.abi.encodeFunctionCall(
-    {
-      name: "mintToken",
-      type: "function",
-      inputs: [
-        {
-          type: "string",
-          name: "tokenURI",
-        },
-      ],
-    },
-    [_uri]
-  );
+import { useWeb3ExecuteFunction } from "react-moralis";
+import Moralis from "moralis";
 
-  const transactionParameters = {
-    to: nft_contract_address,
-    from: window.ethereum.selectedAddress,
-    data: encodedFunction,
+const mintToken = async (_uri, contractProcessor) => {
+  await Moralis.enableWeb3();
+
+  const options = {
+    contractAddress: "0x491F4f144B777E3DD464930211906C5dbB9015Ad",
+    functionName: "payToMint",
+    abi: [
+      {
+        inputs: [{ type: "string", name: "metadataURI" }],
+        name: "payToMint",
+        outputs: [
+          { internalType: "string", type: "string", name: "newItemId" },
+        ],
+        stateMutability: "payable",
+        type: "function",
+      },
+    ],
+    params: {},
+    msgValue: Moralis.Units.ETH(0.01),
   };
-  const txn = await window.ethereum.request({
-    method: "eth_sendTransaction",
-    params: [transactionParameters],
-  });
-  return txn;
+
+  await contractProcessor.fetch({ params: options });
+
+  return "success";
 };
 
 export default mintToken;

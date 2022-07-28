@@ -3,10 +3,11 @@ import "../styles/ProductView.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import handleBuy from "../Handlers/handleBuy";
-import { useMoralis } from "react-moralis";
+import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 
 const ProductView = () => {
   const { user } = useMoralis();
+  const contractProcessor = useWeb3ExecuteFunction();
 
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -44,7 +45,11 @@ const ProductView = () => {
       </div>
       <div className="product-details-div">
         <h2>{product.title}</h2>
-        <a onClick={() => handleBuy(product.id, product.title, user)}>
+        <a
+          onClick={() =>
+            handleBuy(product.id, product.title, user, contractProcessor)
+          }
+        >
           Add to cart
         </a>
       </div>

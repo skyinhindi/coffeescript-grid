@@ -3,11 +3,14 @@ import ProductView from "../containers/ProductView";
 import "../styles/ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import handleBuy from "../Handlers/handleBuy";
-import { useMoralis } from "react-moralis";
+import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 
 const ProductCard = ({ product }) => {
   const { user } = useMoralis();
+  const contractProcessor = useWeb3ExecuteFunction();
+
   const navigate = useNavigate();
+
   const { id, title, description, image } = product;
   const price = "0.01 ETH";
 
@@ -26,7 +29,9 @@ const ProductCard = ({ product }) => {
         <div className=""></div>
         <div className="divider"></div>
         <div className="product-bottom-row">
-          <a onClick={() => handleBuy(id, title, user)}>Add to cart</a>
+          <a onClick={() => handleBuy(id, title, user, contractProcessor)}>
+            Add to cart
+          </a>
         </div>
       </div>
     </div>
