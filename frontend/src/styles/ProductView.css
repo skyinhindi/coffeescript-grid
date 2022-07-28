@@ -1,13 +1,58 @@
 .product-view-container {
-  overflow: scroll;
+  height: 100%;
+  width: 100%;
+
+}
+
+#go-back-btn {
+  margin: 2%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  /* position: fixed; */
+}
+
+#go-back-btn>span {
+  font-family: 'cairo';
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#go-back-btn:hover>span {
+  color: #eb622f;
+}
+
+.product-view-container-inner {
+  position: relative;
   height: 100%;
   width: 100%;
   display: flex;
+  justify-content: center;
+  overflow: scroll;
+  max-height: 80vh;
+
+}
+
+/* .product-view-container-inner>div {
+  width: 100%;
+} */
+
+.product-display-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
 
 .product-details-div {
-  position: relative;
+  width: 47%;
+  padding: 4% 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* align-items: center; */
 }
+
 .product-view-image {
   height: 400px;
   width: 300px;
@@ -15,4 +60,69 @@
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+#product-title-text {
+  font-family: 'cairo';
+  font-size: 22px;
+  font-weight: 800;
+}
+
+#product-desc-text {
+  font-size: 15px;
+  color: grey;
+  font-style: italic;
+}
+
+#product-specifics-text {
+  display: flex;
+  flex-direction: column;
+}
+
+#product-specifics-text>div {
+  margin: 2%;
+}
+
+#specifics-text {
+  font-size: 18px;
+  color: grey;
+}
+
+#specifics-header {
+  font-size: 15px;
+  color: grey;
+}
+
+#specifics-value {
+  font-size: 15px;
+  color: orange;
+}
+.product-view-btn{
+  display: flex;
+  flex-direction: row;
+
+}
+#add-to-cart-btn {
+  border: none;
+  margin: 0 5%;
+  width: 90%;
+  color: white;
+  /* outline: black; */
+  font-size: 20px;
+  background: black;
+  padding: 2%;
+  border-radius: 0.2em;
+  box-shadow: 2px 2px 2px grey;
+}
+#buy-now-btn{
+border: none;
+  margin: 0 5%;
+  width: 90%;
+  color: white;
+  /* outline: black; */
+  font-size: 20px;
+  background: #eb622f;
+  padding: 2%;
+  border-radius: 0.2em;
+  box-shadow: 2px 2px 2px grey;
 }

@@ -3,6 +3,9 @@ import ProductView from "../containers/ProductView";
 import "../styles/ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import cart from '../assets/cart.svg';
+import heart from '../assets/heart.svg';
+
 
 const ProductCard = ({ product, handleBuy }) => {
   const navigate = useNavigate();
@@ -24,7 +27,12 @@ const ProductCard = ({ product, handleBuy }) => {
         <div className=""></div>
         <div className="divider"></div>
         <div className="product-bottom-row">
-          <a onClick={() => handleBuy(id, title)}>Add to cart</a>
+          <button id="product-card-btn" onClick={() => handleBuy(id, title)}>
+            <img src={cart}></img>
+          </button>
+          <button id="product-card-btn" onClick={() => handleBuy(id, title)}>
+            <img src={heart}></img>
+          </button>
         </div>
       </div>
     </div>

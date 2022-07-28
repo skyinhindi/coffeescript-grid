@@ -40,6 +40,38 @@ const categories = [
     icon: "/images/TShirt.svg",
   },
 ];
+const user_profiles = [
+  {
+    id: 1,
+    name: "Cart",
+    path: "cart",
+    icon: "",
+  },
+  {
+    id: 2,
+    name: "Whishlist",
+    path: "wishlist",
+    icon: "",
+  },
+  {
+    id: 3,
+    name: "History",
+    path: "history",
+    icon: "",
+  },
+  {
+    id: 4,
+    name: "Manage Ownership",
+    path: "ownership",
+    icon: "",
+  },
+  {
+    id: 5,
+    name: "Settings",
+    path: "settings",
+    icon: "",
+  }
+];
 const Sidebar = ({ selected, setSelected }) => {
   const { logout, user } = useMoralis();
   const navigate = useNavigate();

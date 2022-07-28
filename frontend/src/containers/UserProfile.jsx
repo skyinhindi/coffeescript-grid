@@ -10,7 +10,7 @@ const UserProfile = () => {
   return (
     <div className='user-profile'>
       <div className="">
-        <btn onClick={() => { navigate(-1) }}>Go back</btn>
+        <button onClick={() => { navigate(-1) }}> Go back </button>
       </div>
       <div className="user">{user.id}</div>
     </div>
