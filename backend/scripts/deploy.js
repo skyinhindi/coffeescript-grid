@@ -1,10 +1,10 @@
 const hre = require("hardhat");
 
 const main = async () => {
-  const Transact = await hre.ethers.getContractFactory("Transact");
-  const transact = await Transact.deploy();
-  await transact.deployed();
-  console.log("transact deployed to:", transact.address);
+  const Warranty = await hre.ethers.getContractFactory("Warranty");
+  const warranty = await Warranty.deploy();
+  await warranty.deployed();
+  console.log("Warranty deployed to:", warranty.address);
 };
 
 main().catch((error) => {

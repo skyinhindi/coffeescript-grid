@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/token/ERC721/ERC721.sol";
-import "@openzeppelin/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/access/Ownable.sol";
-import "@openzeppelin/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract Warranty is ERC721, ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
@@ -28,7 +28,7 @@ contract Warranty is ERC721, ERC721URIStorage, Ownable {
 
     function payToMint(address recipient, string memory metadataURI) public payable returns (uint256) {
         require(existingURIs[metadataURI] != 1, 'NFT already minted!');
-        require (msg.value >= 0.05 ether, 'Need to pay up!');
+        require (msg.value >= 0.01 ether, 'Need to pay up!');
 
         uint256 newItemId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
