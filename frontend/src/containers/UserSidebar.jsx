@@ -23,7 +23,7 @@ const UserSidebar = ({ selected, setSelected }) => {
     {
       id: 1,
       name: "about",
-      path: `/about`,
+      path: `about`,
       icon: "/images/GameController.svg",
     },
     {
@@ -92,14 +92,14 @@ const UserSidebar = ({ selected, setSelected }) => {
         })}
       </div>
       <div className="sidebar-bottom">
-        <Link to={`/user/${user.id}`}>
+        <Link to={`/user/${user.id}/about`}>
           <img className="pfp" src={Ishan} alt="" />
         </Link>
         <Link
           className={selected === "/" ? "home-list-item" : "home-list-item-ns"}
           to="/"
           onClick={() => {
-            setSelected("/");
+            // setSelected("/");
           }}
         >
           <img

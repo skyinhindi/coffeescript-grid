@@ -4,21 +4,26 @@
 
 }
 
-#go-back-btn {
-  margin: 2%;
+.go-back-btn {
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
-  /* position: fixed; */
+  justify-content: start;
 }
 
-#go-back-btn>span {
+.go-back-btn > img {
+  cursor: pointer;
+  margin-left: 3rem;
+}
+
+.go-back-btn>span {
   font-family: 'cairo';
   font-size: 14px;
   font-weight: 600;
 }
 
-#go-back-btn:hover>span {
+.go-back-btn:hover>span {
   color: #eb622f;
 }
 

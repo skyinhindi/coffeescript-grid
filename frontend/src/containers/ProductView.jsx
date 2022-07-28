@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import arrowLeft from "../assets/goback.svg";
 
-const ProductView = () => {
+const ProductView = ({setCartItems}) => {
   const { user } = useMoralis();
   const contractProcessor = useWeb3ExecuteFunction();
 
@@ -38,7 +38,7 @@ const ProductView = () => {
         onClick={() => {
           navigate(-1);
         }}
-      >
+        >
         <img src={arrowLeft}></img>
       </div>
       <div className="product-view-container-inner">

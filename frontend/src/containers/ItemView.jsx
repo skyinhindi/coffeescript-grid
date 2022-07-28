@@ -4,7 +4,7 @@ import Loading from "../components/Loading";
 import Products from "./Products";
 import "../styles/itemView.css";
 
-const ItemView = ({ searchTerm, setSelected }) => {
+const ItemView = ({ searchTerm, setSelected, setCartItems, cartItems }) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const ItemView = ({ searchTerm, setSelected }) => {
   }, [searchTerm]);
   return (
     <div className="item-view">
-      {loading ? <Loading /> : <Products products={products} />}
+      {loading ? <Loading /> : <Products cartItems={cartItems} setCartItems={setCartItems} products={products} />}
     </div>
   );
 };
