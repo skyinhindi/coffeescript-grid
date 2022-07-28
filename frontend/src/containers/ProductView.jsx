@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import arrowLeft from "../assets/goback.svg";
+import handleBuy from "../Handlers/handleBuy";
 
 const ProductView = ({setCartItems}) => {
   const { user } = useMoralis();
@@ -12,7 +13,7 @@ const ProductView = ({setCartItems}) => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  console.log(product);
   const navigate = useNavigate();
   useEffect(() => {
     async function getProductByID() {
@@ -77,9 +78,9 @@ const ProductView = ({setCartItems}) => {
             </button>
             <button
               id="buy-now-btn"
-              // onClick={() => {
-              //   console.log("ADDED TO CART");
-              // }}
+              onClick={() => {
+                handleBuy(product.id, product.title, user, 0.01);
+              }}
             >
               BUY NOW
             </button>
