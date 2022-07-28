@@ -31,13 +31,13 @@ const ProductCard = ({ product }) => {
         <div className="product-bottom-row">
           <button
             id="product-card-btn"
-            onClick={() => handleBuy(id, title, contractProcessor)}
+            onClick={() => handleBuy(id, title, user, contractProcessor)}
           >
             <img src={cart}></img>
           </button>
           <button
             id="product-card-btn"
-            onClick={() => handleBuy(id, title, contractProcessor)}
+            onClick={() => handleBuy(id, title, user, contractProcessor)}
           >
             <img src={heart}></img>
           </button>
