@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import Moralis from "moralis";
-import { useMoralisWeb3Api } from "react-moralis";
+import { getOrders } from "./Handlers/dataStore";
 
 import Login from "./containers/Login";
 import Home from "./containers/Home";
@@ -11,18 +11,9 @@ import "./styles/styles.css";
 const App = () => {
   const { authenticate, isAuthenticated, user } = useMoralis();
 
-  const Web3Api = useMoralisWeb3Api();
-
-  const fetchNFTs = async () => {
-    const testnetNFTs = await Web3Api.Web3API.account.getNFTs({
-      chain: "ropsten",
-    });
-    console.log(testnetNFTs);
-  };
-
   useEffect(() => {
     if (isAuthenticated) {
-      fetchNFTs();
+      getOrders();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
