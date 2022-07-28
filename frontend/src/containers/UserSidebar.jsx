@@ -55,10 +55,7 @@ const UserSidebar = ({ selected, setSelected }) => {
 
   return (
     <div className="sidebar">
-      <div className="side-bar-header">
         <Logo width={75} setSelected={setSelected} />
-        <FontAwesomeIcon className="logoutbtn" icon={faRightFromBracket} size="xl" onClick={handleLogout}/>
-      </div>
       <div className="categories">
         <h3 className="sidebar-heading">User Profile</h3>
         {categories.map((category) => {
