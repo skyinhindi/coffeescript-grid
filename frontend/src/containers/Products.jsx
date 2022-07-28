@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "../styles/Products.css";
+import "../styles/products.css";
 import ProductCard from "../components/ProductCard";
 import WishlistItem from "../components/WishlistItem";
 import ProductItem from "../components/ProductItem";
 
-const Products = ({ products, isCartItem}) => {
+const Products = ({ products, isCartItem }) => {
   return (
     <div className="products-view-container">
       {products.length === 0 ? (
