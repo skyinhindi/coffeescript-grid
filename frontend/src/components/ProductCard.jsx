@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import ProductView from "../containers/ProductView";
 import "../styles/ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import handleBuy from "../Handlers/handleBuy";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
+import cart from "../assets/cart.svg";
+import heart from "../assets/heart.svg";
 
 const ProductCard = ({ product }) => {
   const { user } = useMoralis();
@@ -32,10 +32,21 @@ const ProductCard = ({ product }) => {
           <a onClick={() => handleBuy(id, title, user, contractProcessor)}>
             Add to cart
           </a>
+          <button
+            id="product-card-btn"
+            onClick={() => handleBuy(id, title, contractProcessor)}
+          >
+            <img src={cart}></img>
+          </button>
+          <button
+            id="product-card-btn"
+            onClick={() => handleBuy(id, title, contractProcessor)}
+          >
+            <img src={heart}></img>
+          </button>
         </div>
       </div>
     </div>
-    // </Link>
   );
 };
 

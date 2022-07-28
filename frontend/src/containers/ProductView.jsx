@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/ProductView.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
-import handleBuy from "../Handlers/handleBuy";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
+import arrowLeft from "../assets/goback.svg";
 
 const ProductView = () => {
   const { user } = useMoralis();
@@ -33,25 +33,59 @@ const ProductView = () => {
     <Loading />
   ) : (
     <div className="product-view-container">
-      <btn
+      <a
+        id="go-back-btn"
         onClick={() => {
           navigate(-1);
         }}
       >
-        Go back
-      </btn>
-      <div className="product-display-div">
-        <img className="product-view-image" src={product.image}></img>
-      </div>
-      <div className="product-details-div">
-        <h2>{product.title}</h2>
-        <a
-          onClick={() =>
-            handleBuy(product.id, product.title, user, contractProcessor)
-          }
-        >
-          Add to cart
-        </a>
+        <img src={arrowLeft}></img>
+        <span>Go Back</span>
+      </a>
+      <div className="product-view-container-inner">
+        <div className="product-display-div">
+          <img className="product-view-image" src={product.image}></img>
+        </div>
+        <div className="product-details-div">
+          <div id="product-title-text">{product.title}</div>
+          <div id="product-desc-text">{product.description}</div>
+          <div id="product-specifics-text">
+            <div>
+              <span id="specifics-text"> Specifics </span>
+            </div>
+            <div>
+              <span id="specifics-header">Rating: </span>{" "}
+              <span id="specifics-value">
+                <b>{product.rating.rate}</b>{" "}
+              </span>
+            </div>
+            <div>
+              <span id="specifics-header">In </span>{" "}
+              <span id="specifics-value">
+                <b>{product.rating.count}</b>
+              </span>
+              <span id="specifics-header"> carts currently </span>
+            </div>
+          </div>
+          <div className="product-view-btn">
+            <button
+              id="add-to-cart-btn"
+              onClick={() => {
+                console.log("ADDED TO CART");
+              }}
+            >
+              ADD TO CART
+            </button>
+            <button
+              id="buy-now-btn"
+              // onClick={() => {
+              //   console.log("ADDED TO CART");
+              // }}
+            >
+              BUY NOW
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

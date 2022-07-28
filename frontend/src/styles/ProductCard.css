@@ -89,7 +89,7 @@
   /* padding: 10%; */
 }
 
-.buy-button-container {
+/* .buy-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,11 +108,17 @@
   background: #000;
   border: 1px solid #000;
   color: #fff;
-}
+} */
 
 .divider {
   background-color: grey;
   height: 0.5px;
   width: 80%;
   align-items: center;
+}
+
+#product-card-btn{
+  border: none;
+  outline: none;
+  /* color: orangered; */
 }

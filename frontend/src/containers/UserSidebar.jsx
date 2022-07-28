@@ -7,75 +7,45 @@ import '../styles/sidebar.css';
 import Ishan from "../assets/ishan.jpeg";
 import { useMoralis } from "react-moralis";
 
-const home = {
-  id: 0,
-  name: "Home",
-  path: "/",
-  icon: "/images/home.svg",
-};
-
-const categories = [
-  {
-    id: 1,
-    name: "Jewelery",
-    path: "jewelery",
-    icon: "/images/GameController.svg",
-  },
-  {
-    id: 2,
-    name: "Beauty",
-    path: "beauty",
-    icon: "/images/EyeClosed.svg",
-  },
-  {
-    id: 3,
-    name: "Electronics",
-    path: "electronics",
-    icon: "/images/GameController.svg",
-  },
-  {
-    id: 4,
-    name: "Apparel",
-    path: "apparel",
-    icon: "/images/TShirt.svg",
-  },
-];
-const user_profiles = [
-  {
-    id: 1,
-    name: "Cart",
-    path: "cart",
-    icon: "",
-  },
-  {
-    id: 2,
-    name: "Whishlist",
-    path: "wishlist",
-    icon: "",
-  },
-  {
-    id: 3,
-    name: "History",
-    path: "history",
-    icon: "",
-  },
-  {
-    id: 4,
-    name: "Manage Ownership",
-    path: "ownership",
-    icon: "",
-  },
-  {
-    id: 5,
-    name: "Settings",
-    path: "settings",
-    icon: "",
-  }
-];
-const Sidebar = ({ selected, setSelected }) => {
+const UserSidebar = ({ selected, setSelected }) => {
   const { logout, user } = useMoralis();
 
   const navigate = useNavigate();
+
+  const home = {
+    id: 0,
+    name: "user",
+    path: "/",
+    icon: "/images/home.svg",
+  };
+  
+  const categories = [
+    {
+      id: 1,
+      name: "about",
+      path: `/about`,
+      icon: "/images/GameController.svg",
+    },
+    {
+      id: 1,
+      name: "wishlist",
+      path: "wishlist",
+      icon: "/images/GameController.svg",
+    },
+    {
+      id: 2,
+      name: "history",
+      path: "history",
+      icon: "/images/EyeClosed.svg",
+    },
+    {
+      id: 3,
+      name: "settings",
+      path: "settings",
+      icon: "/images/GameController.svg",
+    },
+    
+  ];
 
   const handleLogout = async () => {
     await logout();
@@ -85,12 +55,9 @@ const Sidebar = ({ selected, setSelected }) => {
 
   return (
     <div className="sidebar">
-      <div className="side-bar-header">
         <Logo width={75} setSelected={setSelected} />
-        <FontAwesomeIcon className="logoutbtn" icon={faRightFromBracket} size="xl" onClick={handleLogout}/>
-      </div>
       <div className="categories">
-        <h3 className="sidebar-heading">Categories</h3>
+        <h3 className="sidebar-heading">User Profile</h3>
         {categories.map((category) => {
           return (
             <Link
@@ -98,7 +65,7 @@ const Sidebar = ({ selected, setSelected }) => {
               onClick={() => {
                 setSelected(category.path);
               }}
-              to={`/category/${category.path}`}
+              to={`/user/${user.id}/${category.path}`}
               key={category.path}
             >
               <div
@@ -125,7 +92,7 @@ const Sidebar = ({ selected, setSelected }) => {
         })}
       </div>
       <div className="sidebar-bottom">
-        <Link to={`/user/${user.id}/about`}>
+        <Link to={`/user/${user.id}`}>
           <img className="pfp" src={Ishan} alt="" />
         </Link>
         <Link
@@ -147,4 +114,4 @@ const Sidebar = ({ selected, setSelected }) => {
   );
 };
 
-export default Sidebar;
+export default UserSidebar;
