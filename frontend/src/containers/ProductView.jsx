@@ -6,14 +6,13 @@ import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import arrowLeft from "../assets/goback.svg";
 import handleBuy from "../Handlers/handleBuy";
 
-const ProductView = ({setCartItems}) => {
+const ProductView = ({ setCartItems }) => {
   const { user } = useMoralis();
   const contractProcessor = useWeb3ExecuteFunction();
 
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
-  console.log(product);
   const navigate = useNavigate();
   useEffect(() => {
     async function getProductByID() {
@@ -39,7 +38,7 @@ const ProductView = ({setCartItems}) => {
         onClick={() => {
           navigate(-1);
         }}
-        >
+      >
         <img src={arrowLeft}></img>
       </div>
       <div className="product-view-container-inner">

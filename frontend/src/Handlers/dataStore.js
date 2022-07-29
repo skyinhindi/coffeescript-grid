@@ -11,7 +11,7 @@ const getDate = () => {
   return today;
 };
 
-export const saveOrder = (hash, tokenId, title, price) => {
+export const saveOrder = (hash, tokenId, title, price, imageURI) => {
   const order = new Orders();
 
   const username = localStorage.getItem("username");
@@ -22,6 +22,7 @@ export const saveOrder = (hash, tokenId, title, price) => {
   order.set("Title", title);
   order.set("Date", getDate());
   order.set("Price", price);
+  order.set("ImageUri", imageURI);
 
   order.save().then(
     (order) => {

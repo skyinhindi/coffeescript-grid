@@ -12,10 +12,7 @@ const App = () => {
   const { authenticate, isAuthenticated, user, isInitialized } = useMoralis();
 
   useEffect(() => {
-    const func = async () => {
-      const res = await getOrders();
-      console.log(res);
-    };
+    const func = async () => {};
     func();
   });
 
@@ -25,6 +22,7 @@ const App = () => {
         .then((user) => {
           Moralis.enableWeb3();
           localStorage.setItem("username", user.attributes.username);
+          localStorage.setItem("eth_address", user.attributes.accounts);
           return true;
         })
         .catch((error) => {
