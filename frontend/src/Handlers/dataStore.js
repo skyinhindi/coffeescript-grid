@@ -35,5 +35,7 @@ export const saveOrder = (hash, tokenId, title, price) => {
 export const getOrders = async () => {
   const query = new Moralis.Query(Orders);
   const results = await query.find();
-  return results;
+  const orders = results.map((result) => result.attributes);
+  // console.log(orders);
+  return orders;
 };

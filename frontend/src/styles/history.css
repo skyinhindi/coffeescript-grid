@@ -1,5 +1,68 @@
 .history {
   display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
+  align-items: center;
+  position: relative;
+}
+
+.history-list-items {
+  position: relative;
+}
+
+.order-item {
+  display: flex;
+  width: 80%;
+  padding: 2rem;
+  margin-top: 1rem;
+  background-color: #f6f6f6;
+}
+.order-item:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.view-nft {
+  text-decoration: none;
+  width: 50%;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #EB5E28;
+  opacity: .68;
+  color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+}
+
+.view-nft:hover {
+  opacity: .5;
+}
+
+.transfer-ownship {
+  font-size: 1.2rem;
+  color: grey;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+.transfer-ownship:hover {
+  font-size: 1.2rem;
+  color: grey;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+
+}
+
+.transfer-ownership-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 400px;
+  height: 200px;
+  background-color: white;
 }

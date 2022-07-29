@@ -4,6 +4,7 @@
   display: flex;
   align-items: stretch;
   overflow: scroll;
+  padding-left: 2rem;
   background-color: transparent;
   gap: 1rem;
   margin-bottom: 3rem;
@@ -94,6 +95,7 @@
 
 .buy-btn {
   width: 50%;
+  margin-top: 1rem;
   background-color: #EB5E28;
   opacity: .68;
   color: white;
