@@ -22,6 +22,7 @@ const App = () => {
         .then((user) => {
           Moralis.enableWeb3();
           localStorage.setItem("username", user.attributes.username);
+          localStorage.setItem("eth_address", user.attributes.accounts);
           return true;
         })
         .catch((error) => {

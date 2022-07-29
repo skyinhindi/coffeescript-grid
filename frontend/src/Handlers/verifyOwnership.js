@@ -7,5 +7,9 @@ const verifyOwnership = async (tokenID) => {
     chain: "ropsten",
   };
   const tokenIdOwners = await Moralis.Web3API.token.getTokenIdOwners(options);
-  return tokenIdOwners.result[0].owner_of;
+  const owner = tokenIdOwners.result[0].owner_of;
+  const current = localStorage.getItem("eth_address");
+
+  if (owner == current) return true;
+  else return false;
 };
