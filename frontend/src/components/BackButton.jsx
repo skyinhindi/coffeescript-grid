@@ -9,7 +9,7 @@ const BackButton = () => {
     <div
         className="go-back-btn"
         onClick={() => {
-          navigate(-1);
+          navigate('/');
         }}
       >
         <img src={arrowLeft}></img>

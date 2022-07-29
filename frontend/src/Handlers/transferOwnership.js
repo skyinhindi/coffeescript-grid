@@ -1,6 +1,7 @@
 import Moralis from "moralis";
 
-const transferOwnership = ( tokenId, recipient ) => {
+const transferOwnership = async ( tokenId, recipient ) => {
+  const web3Provider = await Moralis.enableWeb3();
     const options = {
         type: "erc721",
         receiver: recipient,

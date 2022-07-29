@@ -15,18 +15,18 @@ const UserProfile = () => {
   const {user} = useMoralis();
   const [selected, setSelected] = useState('wishlist')
   const navigate = useNavigate();
-  let currentUrl = window.location.href.toLowerCase();
-  console.log(currentUrl);
+  
   useEffect(() => {
+    let currentUrl = window.location.href.toLowerCase();
+    console.log(currentUrl);
+    if(currentUrl.includes('wishlist')) {
+      setSelected('wishlist');
+    } else if(currentUrl.includes('history')) {
+      setSelected('history');
+    } else {
+      setSelected('settings');
+    }
     return () => {
-      
-      if(currentUrl.includes('wishlist')) {
-        setSelected('wishlist')
-      } else if(currentUrl.includes('history')) {
-        setSelected('history');
-      } else {
-        setSelected('settings');
-      }
     };
   }, [])
 
