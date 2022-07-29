@@ -41,13 +41,7 @@ export const getOrders = async (user) => {
   const query = new Moralis.Query(Orders);
   query.equalTo("UserName", username);
   const results = await query.find();
-<<<<<<< HEAD
   const orders = results.map((result) => result.attributes);
   // console.log(orders);
   return orders;
-=======
-  const ret = [];
-  results.forEach((el) => ret.push(el.attributes));
-  return ret;
->>>>>>> 24d2a93bb4d5bd2d465e7c930b84164e26dbdfb8
 };
