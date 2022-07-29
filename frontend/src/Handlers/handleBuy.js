@@ -45,7 +45,6 @@ const handleBuy = async (id, title, user, price) => {
   const file = new Moralis.File("testNFT-acash1", doc.output("blob"));
   await file.saveIPFS();
   const warrantyURI = file.ipfs();
-  console.log(warrantyURI);
   const metadata = {
     transactionTitle: "",
     invoice: warrantyURI,
