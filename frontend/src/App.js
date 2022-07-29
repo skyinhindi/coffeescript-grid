@@ -13,8 +13,8 @@ const App = () => {
 
   useEffect(() => {
     const func = async () => {
-      const res = await getOrders();
-      console.log(res);
+      // const res = await getOrders();
+      // console.log(res);
     };
     func();
   });

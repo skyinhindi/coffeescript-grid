@@ -22,7 +22,7 @@ const getTokenId = async () => {
   return tokens.total + 1;
 };
 
-const handleBuy = async (id, title, user, price) => {
+const handleBuy = async (id, title, user, price, imageURI) => {
   const date = getDate();
   const tokenId = await getTokenId();
   let shortTitle = title.substr(0, 50);
@@ -40,6 +40,7 @@ const handleBuy = async (id, title, user, price) => {
   doc.text(`Date of Purchase: ${date}`, 10, 50);
   doc.text(`Warranty Period: 6 months`, 10, 60);
   doc.text(`Owner: ${user.attributes.ethAddress}`, 10, 80);
+  doc.addImage(qr_base_64, "png", 120, 120);
 
   //Save invoice and metadata to IPFS
   const file = new Moralis.File("testNFT-acash1", doc.output("blob"));
@@ -58,7 +59,7 @@ const handleBuy = async (id, title, user, price) => {
   //Mint NFT
   try {
     await mintToken(metadataURI, user, price);
-    saveOrder(warrantyURI, tokenId, title, price);
+    saveOrder(warrantyURI, tokenId, title, price, imageURI);
     return true;
   } catch (error) {
     console.log(error);
