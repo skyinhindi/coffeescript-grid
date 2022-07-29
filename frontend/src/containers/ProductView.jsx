@@ -10,10 +10,17 @@ const ProductView = ({ setCartItems }) => {
   const { user } = useMoralis();
   const contractProcessor = useWeb3ExecuteFunction();
 
+    
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const mintNft = async   () => {
+    setLoading(true);
+    const bought= await handleBuy(product.id, product.title, user, 0.01);
+    setLoading(false);
+  }
   useEffect(() => {
     async function getProductByID() {
       setLoading(true);
@@ -78,10 +85,10 @@ const ProductView = ({ setCartItems }) => {
             <button
               id="buy-now-btn"
               onClick={() => {
-                handleBuy(product.id, product.title, user, 0.01);
+                mintNft();
               }}
             >
-              BUY NOW
+              {loading? <Loading color='white'/> :<span>BUY NOW</span>}
             </button>
           </div>
         </div>

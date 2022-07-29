@@ -10,7 +10,7 @@ const TransferModal = ({showModal, setShowModal,tokenId}) => {
   const [recieverAddress, setRecieverAddress] = useState("");
   const { user } = useMoralis();
   const [isActive, setIsActive] = useState(false);
-  const [transferred, setTransferred] = useState(true);
+  const [transferred, setTransferred] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
@@ -38,7 +38,13 @@ const TransferModal = ({showModal, setShowModal,tokenId}) => {
           onChange={(e) => { setRecieverAddress(e.target.value); console.log(recieverAddress); }}
           type="text" placeholder={isActive? "":'Recipient Address'} className='transfer-ownership-input'/>
         </div>
-       <button onClick={() => { transferNft(); }} className='buy-btn'>
+       <button onClick={() => { 
+        setLoading(true);
+        console.log('btn clicked');
+         setTimeout(()=>{ setLoading(false); setTransferred(true); },1000);
+          }
+        }
+            className='buy-btn'>
           {loading ? <Loading color="white" /> : <span className='btn-text'>Transfer</span>}
         </button>
       </div> 
