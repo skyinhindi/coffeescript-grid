@@ -6,15 +6,25 @@ import Login from "./containers/Login";
 import Home from "./containers/Home";
 import "normalize.css";
 import "./styles/styles.css";
+import { getOrders } from "./Handlers/dataStore";
 
 const App = () => {
-  const { authenticate, isAuthenticated, user } = useMoralis();
+  const { authenticate, isAuthenticated, user, isInitialized } = useMoralis();
+
+  useEffect(() => {
+    const func = async () => {
+      const res = await getOrders();
+      console.log(res);
+    };
+    func();
+  });
 
   const login = async () => {
     if (!isAuthenticated) {
       await authenticate({ signingMessage: "Log in to NFTCart" })
         .then((user) => {
           Moralis.enableWeb3();
+          localStorage.setItem("username", user.attributes.username);
           return true;
         })
         .catch((error) => {
