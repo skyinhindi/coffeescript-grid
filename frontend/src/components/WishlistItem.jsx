@@ -9,11 +9,11 @@ const WishlistItem = ({product, setProducts}) => {
   const [hover, setHover] = useState(false);
 
   const { user } = useMoralis();
-  console.log(product);
 
-  const mintNft = () => {
+  const mintNft = async () => {
     setLoading(true);
-    handleBuy(id, title, user);
+    const bought = await handleBuy(id, title, user, 0.01);
+    console.log(bought);
     setLoading(false);
   }
 
@@ -37,8 +37,8 @@ const WishlistItem = ({product, setProducts}) => {
       <div className="wishlist-item-details">
         <div className="wishlist-item-name">{title}</div>
         <div className="wishlist-item-price">0.01 ETH</div>
-        <button onClick={mintNft} className='buy-btn'>
-          {loading ? <Loading color="white" /> : <span className='btn-text'>BUY</span>}
+        <button onClick={() => { mintNft() }} className='buy-btn'>
+          {loading ? <Loading color="white" /> : <span className='btn-text'>Buy</span>}
         </button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { useMoralis } from 'react-moralis'
 import { Link } from 'react-router-dom'
@@ -15,6 +15,21 @@ const UserProfile = () => {
   const {user} = useMoralis();
   const [selected, setSelected] = useState('wishlist')
   const navigate = useNavigate();
+  let currentUrl = window.location.href.toLowerCase();
+  console.log(currentUrl);
+  useEffect(() => {
+    return () => {
+      
+      if(currentUrl.includes('wishlist')) {
+        setSelected('wishlist')
+      } else if(currentUrl.includes('history')) {
+        setSelected('history');
+      } else {
+        setSelected('settings');
+      }
+    };
+  }, [])
+
   return (
     <div className='user-profile'>
       <UserSidebar selected={selected} setSelected={setSelected} />

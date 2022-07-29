@@ -7,53 +7,47 @@ import { useNavigate } from 'react-router-dom';
 import handleBuy from '../Handlers/handleBuy';
 import Loading from './Loading';
 
-const ProductItem = ({product}) => {
+const ProductItem = ({product, cartItems, setCartItems}) => {
   const {id, title, description, image} = product;
   const [loading, setLoading] = useState(false);
   const [hover, setHover] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  const [inCart, setInCart] = useState(false);
   const navigate = useNavigate();
 
   const isCartItem = () => {
     for(var i=0 ;i <cartItems.length; i++){
-      if(cartItems[i].id === id)
+      if(cartItems[i].id === id) {
         return true;
+      }
     }
       
     return false; 
   }
 
-  useEffect(() => {
-    return () => {
-      var cartItems = JSON.parse(localStorage.getItem('cartItems'));
-      if(cartItems)
-        setCartItems(cartItems);
-    };
-  }, [])
-
-  useEffect(() => {
-    return () => {
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    };
-  }, [cartItems])
-
+  useEffect(() => {;
+    if(isCartItem()) {
+      console.log(`${id} is a cart item`);
+      setInCart(true);
+    } 
+  }, []) 
 
   const handleCart = () => {
+    console.log('addong to cart'); 
+  
     var newCartItems = cartItems;
-    for(var i=0; i<cartItems.length; i++) {
-      if(newCartItems[i].id === product.id)
-        return;
-    }
-
+  
+    console.log(newCartItems);
     newCartItems.push(product);
     localStorage.setItem('cartItems', JSON.stringify(newCartItems));
     setCartItems(newCartItems);
    }
 
    const removeItemFromCart = () => {
-    var cartItems = JSON.parse(localStorage.getItem('cartItems'));
-    cartItems = cartItems.filter(item => item.id != id);
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    console.log('removing from cart');
+    var newCartItems = cartItems;
+    newCartItems = cartItems.filter(item => item.id != id);
+    localStorage.setItem('cartItems', JSON.stringify(newCartItems));
+    setCartItems(newCartItems);
    }
 
 
@@ -73,9 +67,9 @@ const ProductItem = ({product}) => {
         <button onClick={() => { navigate(`/product/${id}`); }} className='buy-btn'>
           <span className='btn-text'>VIEW</span>
         </button>
-        <FontAwesomeIcon className="addToCart" color={!isCartItem()? 'black': 'red'} 
-        icon={!isCartItem()? faHeartStroke : faHeart} size="2xl"
-         onClick={() => { if(!isCartItem()) { handleCart(); } else { removeItemFromCart(product); } }}/>
+        <FontAwesomeIcon className="addToCart" color={!inCart? 'black': 'red'} 
+        icon={!inCart? faHeartStroke : faHeart} size="2xl"
+         onClick={() => { if(!inCart) { handleCart(); setInCart(true);} else { removeItemFromCart(product); setInCart(false); } }}/>
         </div>
       </div>
     </div>

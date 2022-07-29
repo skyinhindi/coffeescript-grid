@@ -7,8 +7,10 @@ import { useMoralis } from "react-moralis";
 
 const UserSidebar = ({ selected, setSelected }) => {
   const { logout, user } = useMoralis();
-
+  const params = useParams();
   const navigate = useNavigate();
+
+
 
   const home = {
     id: 0,
