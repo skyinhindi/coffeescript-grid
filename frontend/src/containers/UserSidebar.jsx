@@ -31,13 +31,7 @@ const UserSidebar = ({ selected, setSelected }) => {
       name: "History",
       path: "history",
       icon: "/images/EyeClosed.svg",
-    },
-    {
-      id: 3,
-      name: "Settings",
-      path: "settings",
-      icon: "/images/EyeClosed.svg",
-    },
+    }
   ];
 
   const handleLogout = async () => {
