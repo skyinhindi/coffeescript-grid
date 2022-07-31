@@ -2,25 +2,23 @@ import React, { useEffect, useState } from "react";
 import "../styles/ProductView.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
+import { useMoralis } from "react-moralis";
 import arrowLeft from "../assets/goback.svg";
 import handleBuy from "../Handlers/handleBuy";
 
 const ProductView = ({ setCartItems }) => {
   const { user } = useMoralis();
-  const contractProcessor = useWeb3ExecuteFunction();
 
-    
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const mintNft = async   () => {
+  const mintNft = async () => {
     setLoading(true);
-    const bought= await handleBuy(product.id, product.title, user, 0.01);
+    const bought = await handleBuy(product.id, product.title, user, 0.01);
     setLoading(false);
-  }
+  };
   useEffect(() => {
     async function getProductByID() {
       setLoading(true);
@@ -88,7 +86,7 @@ const ProductView = ({ setCartItems }) => {
                 mintNft();
               }}
             >
-              {loading? <Loading color='white'/> :<span>BUY NOW</span>}
+              {loading ? <Loading color="white" /> : <span>BUY NOW</span>}
             </button>
           </div>
         </div>

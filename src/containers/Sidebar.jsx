@@ -1,38 +1,50 @@
 import React from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../components/Logo";
 import "../styles/sidebar.css";
 import Ishan from "../assets/ishan.jpeg";
 import { useMoralis } from "react-moralis";
 
-const UserSidebar = ({ selected, setSelected }) => {
+const home = {
+  id: 0,
+  name: "Home",
+  path: "/",
+  icon: "/images/home.svg",
+};
+
+const categories = [
+  {
+    id: 1,
+    name: "Jewelery",
+    path: "jewelery",
+    icon: "/images/GameController.svg",
+  },
+  {
+    id: 2,
+    name: "Beauty",
+    path: "beauty",
+    icon: "/images/EyeClosed.svg",
+  },
+  {
+    id: 3,
+    name: "Electronics",
+    path: "electronics",
+    icon: "/images/GameController.svg",
+  },
+  {
+    id: 4,
+    name: "Apparel",
+    path: "apparel",
+    icon: "/images/TShirt.svg",
+  },
+];
+
+const Sidebar = ({ selected, setSelected }) => {
   const { logout, user } = useMoralis();
-  const params = useParams();
+
   const navigate = useNavigate();
-
-
-
-  const home = {
-    id: 0,
-    name: "user",
-    path: "/",
-    icon: "/images/home.svg",
-  };
-
-  const categories = [
-    {
-      id: 1,
-      name: "Wishlist",
-      path: "wishlist",
-      icon: "/images/GameController.svg",
-    },
-    {
-      id: 2,
-      name: "History",
-      path: "history",
-      icon: "/images/EyeClosed.svg",
-    }
-  ];
 
   const handleLogout = async () => {
     await logout();
@@ -42,9 +54,17 @@ const UserSidebar = ({ selected, setSelected }) => {
 
   return (
     <div className="sidebar">
-      <Logo width={75} setSelected={setSelected} />
+      <div className="side-bar-header">
+        <Logo width={75} setSelected={setSelected} />
+        <FontAwesomeIcon
+          className="logoutbtn"
+          icon={faRightFromBracket}
+          size="xl"
+          onClick={handleLogout}
+        />
+      </div>
       <div className="categories">
-        <h3 className="sidebar-heading">User Profile</h3>
+        <h3 className="sidebar-heading">Categories</h3>
         {categories.map((category) => {
           return (
             <Link
@@ -52,7 +72,7 @@ const UserSidebar = ({ selected, setSelected }) => {
               onClick={() => {
                 setSelected(category.path);
               }}
-              to={`/user/${user.id}/${category.path}`}
+              to={`/category/${category.path}`}
               key={category.path}
             >
               <div
@@ -86,7 +106,7 @@ const UserSidebar = ({ selected, setSelected }) => {
           className={selected === "/" ? "home-list-item" : "home-list-item-ns"}
           to="/"
           onClick={() => {
-            // setSelected("/");
+            setSelected("/");
           }}
         >
           <img
@@ -101,4 +121,4 @@ const UserSidebar = ({ selected, setSelected }) => {
   );
 };
 
-export default UserSidebar;
+export default Sidebar;
